@@ -11,35 +11,36 @@ jobs:
     # Checkout the repository
     - name: Checkout code
       uses: actions/checkout@v4
-    
+   
     # Set up Python
     - name: Set up Python 3.12
       uses: actions/setup-python@v4
       with:
         python-version: '3.12'
-    
+   
     # Install dependencies
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-    
+   
     # Debug directory structure and Python path
     - name: Debug environment
       run: |
         pwd  # Should print /home/runner/work/credit-card-risk-model/credit-card-risk-model/
         ls -R  # List directory structure
         python -c "import sys; print(sys.path)"  # Print Python module search path
-
-    
+   
     # Install package in development mode
     - name: Install package
       run: |
         pip install -e .
  
-   # Run tests
+    # Run tests
     - name: Run tests
-      run: pytest tests/ -v    
+      run: |
+        pip install pytest
+        pytest tests/ -v    
    
     # Run the training script (limited epochs for CI)
     - name: Run training script
@@ -47,7 +48,7 @@ jobs:
         python src/train.py
       env:
         EPOCHS: 1  # Limit epochs for CI to save time
-    
+   
     # Upload artifacts (logs, plots, models)
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
