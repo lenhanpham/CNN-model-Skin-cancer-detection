@@ -52,5 +52,5 @@ jobs:
           logs/
           plots/
           models/
-      continue-on-error: true  # Optional: Prevents failure if upload step has issues
-      if-no-files-found: warn  # Optional: Warns instead of failing if no files found
+        continue-on-error: true  # Proper indentation
+        if-no-files-found: warn  # Proper indentation
