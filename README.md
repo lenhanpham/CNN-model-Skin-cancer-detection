@@ -70,7 +70,7 @@ Edit src/config/config.py to adjust hyperparameters (e.g., EPOCHS, LEARNING_RATE
 1. **Run the Training Script**:
 
 ```
-python -m src.train.py
+python -m src.train
 ```
 
 - This downloads the dataset, trains the model, evaluates it, and saves outputs to models/, logs/, and plots/.
