@@ -107,11 +107,6 @@ The project uses GitHub Actions for continuous integration and deployment:
   
 - **View Results**: Check the "Actions" tab in your GitHub repository.
 
-### Customizing CI/CD
-
-- Modify .github/workflows/ci-cd.yml to add deployment steps or adjust testing scope.
-- For full dataset testing.
-
 ## Testing
 
 Run tests locally:
