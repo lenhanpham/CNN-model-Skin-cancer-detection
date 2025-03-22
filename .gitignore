@@ -12,8 +12,6 @@ build/
 *.log
 logs/
 plots/
-models/
-data/
 .mlflow/
 mlruns/
 git-clone-key.txt
