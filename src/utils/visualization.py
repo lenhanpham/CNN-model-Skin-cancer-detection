@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn import metrics
 from src.config import config
+import tensorflow as tf
 
 sns.set()
 
