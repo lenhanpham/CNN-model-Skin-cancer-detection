@@ -1,9 +1,9 @@
 # Skin Cancer Prediction
-#### The end-to-end project is under development.
-
 This project implements a deep learning model to predict skin cancer (malignant vs. benign) using the Xception architecture, fine-tuned on the "Skin Cancer: Malignant vs. Benign" dataset from Kaggle. The project is structured following industry-standard data science practices, with modular code, configuration management, experiment tracking via MLflow, and CI/CD integration using GitHub Actions.
 
-Two models were developed: one from scratch and one using the Xception architecture. In the end, the model based on the Xception architecture was selected to build an end-to-end project.
+Initially, three models were developed: Two from scratch and one using the Xception architecture. In the end, the model based on the Xception architecture was selected to train a convolution neural network for detection of skin cancer. The model can be improved by further implementing hyperparameter search and optimizing the model structure.
+
+![CNN](CNN.png)
 
 ## Features
 
@@ -44,8 +44,8 @@ CNN-model-Skin-cancer-detection/
 
 - Python 3.12+
 - Git
-- Optional: MLflow server for experiment tracking (e.g., mlflow ui)
-- Optional: Kaggle API key for dataset download (see )
+- MLflow server for experiment tracking (e.g., mlflow ui)
+- Kaggle for dataset download 
 
 ## Setup 
 1. **Clone the Repository**:
@@ -110,7 +110,7 @@ The project uses GitHub Actions for continuous integration and deployment:
 ### Customizing CI/CD
 
 - Modify .github/workflows/ci-cd.yml to add deployment steps or adjust testing scope.
-- For full dataset testing, configure Kaggle API keys as GitHub Secrets (KAGGLE_USERNAME, KAGGLE_KEY).
+- For full dataset testing.
 
 ## Testing
 
@@ -123,4 +123,4 @@ pytest tests/ -v
 
 ## License
 
-This project is licensed under the MIT License - see the  file for details.
+This project is licensed under the MIT License 
