@@ -24,30 +24,23 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     
-    # Debug directory structure
-    - name: Debug directory structure
+    # Debug directory structure and Python path
+    - name: Debug environment
       run: |
-        echo "Current directory: $(pwd)"
-        echo "Directory structure:"
-        find . -type d -not -path "*/\.*" | sort
-        
-        echo "Python path:"
-        python -c "import sys; print(sys.path)"
-        
-        echo "Checking for __init__.py files:"
-        find . -name "__init__.py" | sort
+        pwd  # Should print /home/runner/work/credit-card-risk-model/credit-card-risk-model/
+        ls -R  # List directory structure
+        python -c "import sys; print(sys.path)"  # Print Python module search path
+
     
     # Install package in development mode
     - name: Install package
       run: |
         pip install -e .
-    
-    # Run tests with pytest
+ 
+   # Run tests
     - name: Run tests
-      run: |
-        pip install pytest
-        python -m pytest tests/ -v
-    
+      run: pytest tests/ -v    
+   
     # Run the training script (limited epochs for CI)
     - name: Run training script
       run: |
