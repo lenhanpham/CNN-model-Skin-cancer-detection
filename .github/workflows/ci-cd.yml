@@ -1,48 +1,39 @@
 name: Skin Cancer Prediction CI/CD
-
 on:
   push:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
-
     steps:
     # Checkout the repository
     - name: Checkout code
       uses: actions/checkout@v4
-
     # Set up Python
     - name: Set up Python 3.12
       uses: actions/setup-python@v4
       with:
         python-version: '3.12'
-
     # Install dependencies
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
-
     # Run tests with pytest
     - name: Run tests
       run: |
         pip install pytest
-        export PYTHONPATH=$PYTHONPATH:$GITHUB_WORKSPACE  # Add project root to PYTHONPATH
+        # Make the package importable
+        pip install -e .
         pytest tests/ -v
-      env:
-        GITHUB_WORKSPACE: ${{ github.workspace }}  # Define repo root path
-
     # Run the training script (limited epochs for CI)
     - name: Run training script
       run: |
         python src/train.py
       env:
         EPOCHS: 1  # Limit epochs for CI to save time
-
     # Upload artifacts (logs, plots, models)
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
@@ -52,5 +43,5 @@ jobs:
           logs/
           plots/
           models/
-        continue-on-error: true  # Proper indentation
-        if-no-files-found: warn  # Proper indentation
+        continue-on-error: true
+        if-no-files-found: warn

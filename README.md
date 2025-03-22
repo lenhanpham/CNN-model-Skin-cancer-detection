@@ -16,7 +16,7 @@ Initially, three models were developed: Two from scratch and one using the Xcept
 ## Project Structure
 
 ```
-CNN-model-Skin-cancer-detection/
+Skin-cancer-detection/
 ├── .github/workflows/         # GitHub Actions workflows
 │   └── ci-cd.yml
 ├── data/raw/                  # Raw data (downloaded from Kaggle)

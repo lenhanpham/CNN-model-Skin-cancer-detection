@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch
-from src.data.data_loader import download_dataset, create_data_generators, print_class_distribution
+from src.data.data_loader import download_dataset,print_class_distribution
 
 # Mock kagglehub to avoid actual downloads in CI
 @patch('src.data.data_loader.kagglehub.dataset_download')
