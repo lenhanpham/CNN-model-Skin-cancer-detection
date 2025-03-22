@@ -99,15 +99,12 @@ The project uses GitHub Actions for continuous integration and deployment:
 
 - **Trigger**: Runs on push or pull requests to the main branch.
 
-- Steps
-
-  :
-
+- **Steps**:
   1. **Linting**: Checks code quality with flake8.
   2. **Testing**: Runs unit tests with pytest (currently limited to data_loader).
   3. **Build**: Installs dependencies and runs train.py with 1 epoch.
   4. **Artifacts**: Uploads logs/, plots/, and models/ as artifacts.
-
+  
 - **View Results**: Check the "Actions" tab in your GitHub repository.
 
 ### Customizing CI/CD
