@@ -47,8 +47,7 @@ CNN-model-Skin-cancer-detection/
 - Optional: MLflow server for experiment tracking (e.g., mlflow ui)
 - Optional: Kaggle API key for dataset download (see )
 
-## Setup
-
+## Setup 
 1. **Clone the Repository**:
 
 ```
