@@ -2,8 +2,8 @@ import os
 
 # Directory configurations
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))  # Project root
-DATA_DIR = os.path.join(BASE_DIR, "data", "raw")
-MODEL_DIR = os.path.join(BASE_DIR, "models")
+DATA_DIR = os.path.join(BASE_DIR, "train_data", "raw")
+MODEL_DIR = os.path.join(BASE_DIR, "trained_models")
 LOGS_DIR = os.path.join(BASE_DIR, "logs")
 PLOTS_DIR = os.path.join(BASE_DIR, "plots")
 

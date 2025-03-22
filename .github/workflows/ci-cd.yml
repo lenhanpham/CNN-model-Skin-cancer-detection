@@ -57,6 +57,6 @@ jobs:
         path: |
           logs/
           plots/
-          models/
+          train_models/
         continue-on-error: true
         if-no-files-found: warn
