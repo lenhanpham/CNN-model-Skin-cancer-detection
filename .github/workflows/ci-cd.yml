@@ -11,29 +11,50 @@ jobs:
     # Checkout the repository
     - name: Checkout code
       uses: actions/checkout@v4
+    
     # Set up Python
     - name: Set up Python 3.12
       uses: actions/setup-python@v4
       with:
         python-version: '3.12'
+    
     # Install dependencies
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
         pip install -r requirements.txt
+    
+    # Debug directory structure
+    - name: Debug directory structure
+      run: |
+        echo "Current directory: $(pwd)"
+        echo "Directory structure:"
+        find . -type d -not -path "*/\.*" | sort
+        
+        echo "Python path:"
+        python -c "import sys; print(sys.path)"
+        
+        echo "Checking for __init__.py files:"
+        find . -name "__init__.py" | sort
+    
+    # Install package in development mode
+    - name: Install package
+      run: |
+        pip install -e .
+    
     # Run tests with pytest
     - name: Run tests
       run: |
         pip install pytest
-        # Make the package importable
-        pip install -e .
-        pytest tests/ -v
+        python -m pytest tests/ -v
+    
     # Run the training script (limited epochs for CI)
     - name: Run training script
       run: |
         python src/train.py
       env:
         EPOCHS: 1  # Limit epochs for CI to save time
+    
     # Upload artifacts (logs, plots, models)
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
